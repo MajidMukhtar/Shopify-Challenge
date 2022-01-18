@@ -1,3 +1,7 @@
-**Have post card not have too much text**
+**Have next button change picture**
 
-Solution 1: Use a character count 
+Summary
+    My mars rover pic API has multiple pictures stored in an array. I want to create a function that will cycle through all the pictures. How I plan on doing this is by
+having the index of the array go up by one on every click. 
+
+Solution 1: 
