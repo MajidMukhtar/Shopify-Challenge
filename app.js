@@ -121,11 +121,17 @@ document.addEventListener('DOMContentLoaded', () => {
 // Change like button text
 function like(text) {
     if(text.innerHTML == 'Like') {
-    text.innerHTML = 'Unlike'
-    }else if (text.innerHTML == 'Unlike') {
+    text.innerHTML = '👍'
+    }
+    
+
+
+    else if (text.innerHTML == '👍') {
         text.innerHTML = 'Like'
     }
 }
+
+
 
 getNasaPictureOfDay()
 getRoverPictureCuriosity()
