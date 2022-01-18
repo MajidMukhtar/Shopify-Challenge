@@ -23,12 +23,15 @@ fetchData1()
 
 // Get a random Mars Picture from rover, Curiosisty
 
+let picSelection = 0
+
+
 function fetchData2() {
     fetch("https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=mkjbyQXrVc6Ku8oI2Pl6G640WBWuhdJLxt8vBSWP").then(response => {// data about the call
         return response.json()// shows the data from the call as a JavaScript object
     }).then(data => {// the data inside the response
         let photos = data.photos
-        let photoInfo = data.photos[10]
+        let photoInfo = data.photos[picSelection]
         let roverInfo = photoInfo.rover
 
 
@@ -55,12 +58,11 @@ console.log(data.photos[0 + 2])
 
     
         document.querySelector("#nextBtn").onclick = function() {
-            for(let i = 0; i < photos.length; i++) {
-                let nextPhoto = data.photos[i + 1]
-                let img = nextPhoto.img_src
+            picSelection = picSelection + 1
+            let photos = data.photos[picSelection]
+                let img = photos.img_src
                 $("#pic2").attr("src", img)
-
-            }
+            
         }
 
 
