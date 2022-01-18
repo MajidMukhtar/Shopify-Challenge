@@ -1,25 +1,84 @@
 
-// Gets information from the Nasa API
-function fetchData() {
-    fetch("https://api.nasa.gov/planetary/apod?api_key=mkjbyQXrVc6Ku8oI2Pl6G640WBWuhdJLxt8vBSWP").then(response => {// info about the call
+// Gets picture of the day from Nasa API
+function fetchData1() {
+    fetch("https://api.nasa.gov/planetary/apod?api_key=mkjbyQXrVc6Ku8oI2Pl6G640WBWuhdJLxt8vBSWP").then(response => {// data about the call
         return response.json()// shows the data from the call as a JavaScript object
-    }).then(info => {// the data inside the response
-        console.log(info)
-        let date = info.date
-        let title = info.title
-        let image = info.hdurl
-        let descrip = info.explanation
+    }).then(data => {// the data inside the response
+ 
+        let date = data.date
+        let title = data.title
+        let image = data.hdurl
+        let descrip = data.explanation 
 
-        $(".card-img-top").attr("src", image)
-        $(".card-title").html(title)
-        $(".card-text").html(descrip)
-        $(".card-date").html(date)
+        $("#pic1").attr("src", image)
+        $("#title1").html(title)
+        $("#text1").html(descrip)
+        $("#date1").html(date)
     }).catch(error => {// if the call doesn't work, it will console log the error message
         console.log(error)
     })
 }
 
-fetchData()
+fetchData1()
+
+// Get a random Mars Picture from Nasa API
+
+function fetchData2() {
+    fetch("https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=mkjbyQXrVc6Ku8oI2Pl6G640WBWuhdJLxt8vBSWP").then(response => {// data about the call
+        return response.json()// shows the data from the call as a JavaScript object
+    }).then(data => {// the data inside the response
+        let photoInfo = data.photos[10]
+        let roverInfo = photoInfo.rover
+
+
+        let image = photoInfo.img_src
+        let roverName = roverInfo.name
+        let date = photoInfo.earth_date
+        let launchDate = roverInfo.launch_date
+        let landDate = roverInfo.landing_date
+        let roverStatus = roverInfo.status
+        
+        if($("#nextBtn").onclick = true) {
+            photoInfo[ + 1]
+        }
+
+
+        $("#pic2").attr("src", image)
+        $("#title2").html("Rover Name: " + roverName)
+        $("#date2").html(date)
+        $("#text2").html(roverName + " was launched on " + launchDate + " and made landfall on Mars on " + landDate + "." + " It's status is currently " + roverStatus + ".")
+    
+    
+    }).catch(error => {// if the call doesn't work, it will console log the error message
+        console.log(error)
+    })
+}
+
+fetchData2()
+
+function fetchData3() {
+    fetch("https://api.nasa.gov/planetary/earth/assets").then(response => {// data about the call
+        return response.json()// shows the data from the call as a JavaScript object
+    }).then(data => {// the data inside the response
+        console.log(data)
+
+      
+        // let date = data.date
+        // let title = data.title
+        // let image = data.hdurl
+        // let descrip = data.explanation 
+
+        // $("#pic1").attr("src", image)
+        // $("#title1").html(title)
+        // $("#text1").html(descrip)
+        // $("#date1").html(date)
+    }).catch(error => {// if the call doesn't work, it will console log the error message
+        console.log(error)
+    })
+}
+
+fetchData3()    
+
 
 
 // Shows more and less text
@@ -49,3 +108,4 @@ function like(text) {
         text.innerHTML = 'Like'
     }
 }
+
