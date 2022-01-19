@@ -10,8 +10,14 @@ h2 {
   color: white
 }
 
-h6 {
+h3 {
   color: white;
+  margin-left: 2rem;
+
+}
+
+h6 {
+  color: black;
   margin-left: 2rem;
 }
 
@@ -29,12 +35,15 @@ h6 {
 /* Background picture of the earth */
 .background{
   width: 100%;
-  height: 100vh;
+  height: 100%;
   background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(images/Earth.jpg);
   background-position: center;
   background-size: cover;
-}
+  padding-bottom: 200px
 
+
+
+}
 
 
 /* Adjusting the size of cards */
