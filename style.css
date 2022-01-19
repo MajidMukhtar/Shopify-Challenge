@@ -10,8 +10,14 @@ h2 {
   color: white
 }
 
-h6 {
+h3 {
   color: white;
+  margin-left: 2rem;
+
+}
+
+h6 {
+  color: black;
   margin-left: 2rem;
 }
 
